@@ -5,7 +5,7 @@
       <router-link to="/inProgress">In Progress</router-link>
       <router-link to="/completed">Completed</router-link>
     </div>
-    <router-view/>
+    <router-view />
   </div>
 </template>
 
@@ -16,18 +16,18 @@
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  background: #E1E1E1;
+  background: #e1e1e1;
 }
 #nav {
   padding: 23px 0;
   height: 76px;
-  background: #4A90E2;
+  background: #4a90e2;
 }
 
 #nav a {
   font-family: Roboto-Regular;
   font-size: 24px;
-  color: #00408B;
+  color: #00408b;
   text-align: center;
   display: inline-block;
   width: 220px;
@@ -37,7 +37,7 @@
 #nav a.router-link-exact-active {
   font-family: Roboto-Medium;
   font-size: 24px;
-  color: #FFFFFF;
+  color: #ffffff;
   text-align: center;
 }
 .main {
