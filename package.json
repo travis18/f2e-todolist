@@ -19,6 +19,7 @@
     "popper.js": "^1.14.7",
     "prettier": "^1.16.4",
     "vue": "^2.6.6",
+    "vue-loader": "^15.7.0",
     "vue-router": "^3.0.1",
     "vuex": "^3.0.1"
   },
