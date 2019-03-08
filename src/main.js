@@ -13,7 +13,11 @@ import {
   faPencilAlt as fasPencilAlt,
   faEdit as fasEdit,
   faCircle,
-  faCheckSquare
+  faCheckSquare,
+  faHeading,
+  faTimes,
+  faPlus,
+  faPlusSquare
 } from '@fortawesome/free-solid-svg-icons'
 import {
   faStar as farStar,
@@ -34,8 +38,27 @@ Vue.component('font-awesome-icon', FontAwesomeIcon)
 Vue.component('font-awesome-layers', FontAwesomeLayers)
 Vue.component('font-awesome-layers-text', FontAwesomeLayersText)
 
-library.add(fasStar, fasSquare, fasPencilAlt, fasEdit, faCircle, faCheckSquare)
-library.add(farStar, farSquare, farEdit, farCircle, faFile, faCalendarAlt,faCommentDots)
+library.add(
+  fasStar,
+  fasSquare,
+  fasPencilAlt,
+  fasEdit,
+  faCircle,
+  faCheckSquare,
+  faHeading,
+  faTimes,
+  faPlus,
+  faPlusSquare
+)
+library.add(
+  farStar,
+  farSquare,
+  farEdit,
+  farCircle,
+  faFile,
+  faCalendarAlt,
+  faCommentDots
+)
 // library.add(farPencilAlt)
 
 Vue.config.productionTip = false
