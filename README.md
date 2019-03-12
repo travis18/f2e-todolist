@@ -26,10 +26,10 @@ yarn run lint
 
 ---
 
-### Log
+### log / note
 
-[Day0](https://hackmd.io/s/r15qxfgUV)
-[Day1](https://hackmd.io/s/ryegBuG8E)
-[Day2](https://hackmd.io/s/By-YvMQLN)
-[Day3](https://hackmd.io/s/rJVQ0-P8V)
-[Day4](https://hackmd.io/s/SJoBtb1PN)
+- [Day0](https://hackmd.io/s/r15qxfgUV)
+- [Day1](https://hackmd.io/s/ryegBuG8E)
+- [Day2](https://hackmd.io/s/By-YvMQLN)
+- [Day3](https://hackmd.io/s/rJVQ0-P8V)
+- [Day4](https://hackmd.io/s/SJoBtb1PN)
