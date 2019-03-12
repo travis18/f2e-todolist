@@ -51,24 +51,56 @@
       </button>
       <button type="button" class="btn btn-lg btn-primary">
         <font-awesome-icon icon="plus" color="#ffffff" />
-        <span class="btn-save" @click="$emit('hide')">Save</span>
+        <span class="btn-save" @click="saveTodo">{{ saveBtnLabel }}</span>
       </button>
     </div>
   </div>
 </template>
 
 <script>
+import { mapMutations, mapGetters } from 'vuex'
+
 export default {
   props: {
     mode: {
       type: String,
-      default: 'edit' //there are 2 mdoes: 'edit' and 'new'
+      default: '' //there are 2 mdoes: 'edit' and 'new'
     },
     todo: {
       type: Object,
       default: () => {
         return {}
       }
+    }
+  },
+  methods: {
+    ...mapMutations(['createTodo']),
+    saveTodo() {
+      if (this.mode === 'new') {
+        let newTodo = this.getEmptyTodo
+        let todo = this.todo
+        newTodo.title = todo.title
+        newTodo.dueDate = todo.dueDate
+        newTodo.comment = todo.comment
+        newTodo.done = todo.done
+        newTodo.star = todo.star
+        newTodo.id = 10
+        console.log(newTodo)
+        this.createTodo(newTodo)
+        this.todo = this.getEmptyTodo
+      }
+      this.$emit('hide')
+    }
+  },
+  computed: {
+    ...mapGetters(['getEmptyTodo']),
+    saveBtnLabel() {
+      if (this.mode === 'edit') {
+        return 'Save'
+      } else if (this.mode === 'new') {
+        return 'Add Task'
+      }
+      return 'Save'
     }
   }
 }

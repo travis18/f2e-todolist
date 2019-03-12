@@ -2,15 +2,7 @@
   <div class="container">
     <div class="row justify-content-center">
       <section class="main">
-        <div class="col-md-12 input-group input-group-lg">
-          <input
-            type="text"
-            class="form-control"
-            aria-label="Sizing example input"
-            aria-describedby="inputGroup-sizing-lg"
-            placeholder="+ Add Task"
-          />
-        </div>
+        <todo-creater></todo-creater>
       </section>
       <section class="content" id="All-Tasks">
         <todo-item
@@ -23,19 +15,24 @@
           v-for="todo in todos"
           :key="'item_' + todo.id"
         ></todo-item>
+        <div class="note">{{ allTodos.length }} tasks left</div>
       </section>
     </div>
   </div>
 </template>
 
 <script>
-import TodoItem from '../components/TodoItem.vue'
+import TodoItem from '@/components/TodoItem.vue'
+import TodoCreater from '@/components/TodoCreater.vue'
 import { mapGetters } from 'vuex'
 export default {
   name: 'home',
   data() {
     return {
-      allTodos: []
+      allTodos: [],
+      newTodo: {
+        title: 'Hello world'
+      }
     }
   },
   mounted() {
@@ -44,14 +41,26 @@ export default {
   computed: {
     ...mapGetters(['getAllTodos']),
     todos() {
-      return this.allTodos.filter(todo => todo.star === false)
+      return this.allTodos.filter(todo => todo.star == false)
     },
     starTodos() {
       return this.allTodos.filter(todo => todo.star === true)
+    },
+    newTitle() {
+      if (this.newTodo) {
+        let title = this.newTodo.title || ''
+        if (title === '') {
+          return null
+        } else {
+          return title
+        }
+      }
+      return null
     }
   },
   components: {
-    TodoItem
+    TodoItem,
+    TodoCreater
   }
 }
 </script>

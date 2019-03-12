@@ -11,7 +11,7 @@
 
 <style>
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  /* font-family: Roboto-Medium, Helvetica, Arial, sans-serif; */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
@@ -25,7 +25,7 @@
 }
 
 #nav a {
-  font-family: Roboto-Regular;
+  /* font-family: Roboto-Regular; */
   font-size: 24px;
   color: #00408b;
   text-align: center;
@@ -42,7 +42,7 @@
 }
 .main {
   margin-top: 24px;
-  width: 650px;
+  width: 620px;
 }
 .content {
   margin-top: 24px;
@@ -50,5 +50,15 @@
   width: 620px;
   /* margin-left: 10px; */
   /* margin-right: 10px; */
+}
+
+.note {
+  font-family: Roboto-Italic;
+  font-size: 24px;
+  color: #c8c8c8;
+  text-align: left;
+  padding-left: 32px;
+  padding-top: 8px;
+  font-style: italic;
 }
 </style>

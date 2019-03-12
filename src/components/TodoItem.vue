@@ -58,13 +58,18 @@
       </div>
     </div>
     <transition name="bounce">
-      <todo-detail v-if="editMode" :todo="todo" @hide="editMode = false" />
+      <todo-detail
+        v-if="canShowEditForm"
+        :todo="todo"
+        @hide="editMode = false"
+      />
     </transition>
   </div>
 </template>
 
 <script>
 import TodoDetail from './TodoDetail.vue'
+import { mapGetters, mapMutations } from 'vuex'
 export default {
   props: {
     todo: {
@@ -103,6 +108,7 @@ export default {
     }
   },
   computed: {
+    ...mapGetters(['getCurrentEditTodoId']),
     hasComment() {
       if (this.todo === null) {
         return false
@@ -144,14 +150,24 @@ export default {
       }
     },
     editIcon() {
-      if (this.editMode) {
+      if (this.canShowEditForm) {
         return this.iconEdit
       } else {
         return this.iconNotEdit
       }
+    },
+    canShowEditForm() {
+      let todoId = this.getCurrentEditTodoId
+      if (this.editMode === true && this.todo.id === todoId) {
+        return true
+      } else {
+        this.disableEditMode()
+        return false
+      }
     }
   },
   methods: {
+    ...mapMutations(['setCurrentEditTodoId']),
     setStar() {
       this.todo.star = !this.todo.star
     },
@@ -160,6 +176,10 @@ export default {
     },
     setEditMode() {
       this.editMode = !this.editMode
+      this.setCurrentEditTodoId(this.todo.id)
+    },
+    disableEditMode() {
+      this.editMode = false
     }
   },
   components: {
@@ -201,7 +221,7 @@ export default {
   font-size: 10px;
   color: #757575;
 }
-svg:hover {
+.p-3 > svg:hover {
   cursor: pointer;
 }
 
@@ -216,7 +236,7 @@ svg:hover {
     transform: scale(0);
   }
   50% {
-    transform: scale(1.5);
+    transform: scale(1.2);
   }
   100% {
     transform: scale(1);

@@ -40,8 +40,25 @@ export default new Vuex.Store({
         title: 'This is a test todo - only title ',
         star: true,
         done: true
+      },
+      {
+        id: 5,
+        title: 'This is a test todo - only title ',
+        star: true,
+        done: true
       }
-    ]
+    ],
+    emptyTodo: {
+      id: 0,
+      title: '',
+      dueDate: undefined,
+      dueTime: undefined,
+      attachments: [],
+      comment: '',
+      done: false,
+      star: false
+    },
+    currentEditTodId: -1
   },
   getters: {
     getDoneTodos: state => {
@@ -53,8 +70,23 @@ export default new Vuex.Store({
     },
     getUnDoneTodos: state => {
       return state.todos.filter(todo => todo.done !== true)
+    },
+    //duplicate a new todo object from state: emptyTodo and return
+    getEmptyTodo: state => {
+      return Object.assign({}, state.emptyTodo)
+    },
+    getCurrentEditTodoId: state => {
+      return state.currentEditTodId
     }
   },
-  mutations: {},
+  mutations: {
+    createTodo(state, payload) {
+      let newTodo = Object.assign({}, payload)
+      state.todos.push(newTodo)
+    },
+    setCurrentEditTodoId(state, payload) {
+      state.currentEditTodId = payload
+    }
+  },
   actions: {}
 })
